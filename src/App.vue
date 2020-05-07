@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <test-three-box class="container"
+      src="/static/model/dancing.fbx" loader="fbx"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TestThreeBox from './components/TestThreeBox'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    TestThreeBox
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html, body, #app {
+  padding: 0;
+  margin: 0;
+}
+.container{
+  height: 500px;
+  width: 500px;
 }
 </style>
