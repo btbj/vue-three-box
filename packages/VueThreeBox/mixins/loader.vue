@@ -1,40 +1,43 @@
 <script>
+import Loaders from '../utils/loaders.js'
+
 export default {
   props: {
     src: { type: String, required: true },
-    loader: { type: String, required: true }
+    fileType: { type: String, required: true }
   },
   data () {
     return {
-      ObjLoader: null,
       loadingPercentage: 0,
       loading: false
     }
   },
   methods: {
-    async importFBXLoader () {
-      return new Promise(resolve => {
-        import('three/examples/jsm/loaders/FBXLoader.js').then((res) => {
-          resolve(res.FBXLoader)
-        })
-      })
-    },
-    async initLoader () {
-      switch (this.loader) {
+    async getLoader (fileType) {
+      let loader
+      switch (fileType) {
         case 'fbx': {
-          let FBXLoader = await this.importFBXLoader()
-          this.ObjLoader = new FBXLoader()
+          let FBXLoader = await Loaders.importFBXLoader()
+          loader = new FBXLoader()
+          break
+        }
+        case 'obj': {
+          let ObjLoader = await Loaders.importObjLoader()
+          loader = new ObjLoader()
+          break
         }
       }
+      return loader
     },
     async setModel () {
-      await this.initLoader()
+      let loader = await this.getLoader(this.fileType)
       this.loading = true
-      this.ObjLoader.load(this.src, (object) => {
-        this.loading = false
-        this.object = object
-        this.scene.add(object)
-      }, this.onProgress, this.onError)
+      loader.load(this.src, this.onLoad, this.onProgress, this.onError)
+    },
+    onLoad (object) {
+      this.loading = false
+      this.object = object
+      this.scene.add(object)
     },
     onProgress (e) {
       // console.log('Load=>onProgress::', e)
