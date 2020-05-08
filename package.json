@@ -1,10 +1,18 @@
 {
   "name": "vue-three-box",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.1.1",
+  "main": "lib/vue-three-box.umd.min.js",
+  "author": "btbj",
+  "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/btbj/vue-three-box"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name vue-three-box --dest lib packages/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

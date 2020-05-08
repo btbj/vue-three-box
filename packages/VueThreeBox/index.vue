@@ -8,7 +8,7 @@ import * as THREE from 'three'
 import { Loader, Control, Light } from './mixins'
 
 export default {
-  name: 'TestThreeBox',
+  name: 'VueThreeBox',
   mixins: [ Loader, Control, Light ],
   data () {
     return {

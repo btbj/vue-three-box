@@ -1,24 +1,21 @@
 # vue-three-box
 
-## Project setup
+## install
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+npm install vue-three-box
 ```
 
-### Compiles and minifies for production
+### global use
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+// src/main.js
+import VueThreeBox from 'vue-three-box'
+Vue.use(VueThreeBox)
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### local use
+```
+import { VueThreeBox } from 'vue-three-box'
+export default {
+    components: { VueThreeBox }
+}
+```
