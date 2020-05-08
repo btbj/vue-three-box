@@ -18,20 +18,15 @@ export default {
     return {
       controls: null,
       camera: null,
-      scene: null,
+      instance: null,
       renderer: null,
       object: null
     }
   },
-  provide () {
-    return {
-      ThreeScene: this
-    }
-  },
   methods: {
-    init () {
-      this.scene = new THREE.Scene()
-      this.scene.background = new THREE.Color(0xaabbcc)
+    initScene () {
+      this.instance = new THREE.Scene()
+      this.instance.background = new THREE.Color(0xaabbcc)
 
       // should after camera and renderer init
       // this.setControl(this.camera, this.renderer.domElement)
@@ -50,13 +45,13 @@ export default {
       this.render()
     },
     render () {
-      this.renderer.render(this.scene, this.camera)
+      this.renderer.render(this.instance, this.camera)
     }
 
   },
   beforeMount () {
     console.log('scene before mount')
-    this.init()
+    this.initScene()
   },
   mounted () {
     console.log('scene mounted')

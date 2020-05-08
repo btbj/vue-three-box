@@ -1,14 +1,14 @@
 import VueThreeBox from './VueThreeBox'
 import ThreeScene from './ThreeScene.vue'
 import ThreeCam from './ThreeCam.vue'
-import ThreeCamLight from './ThreeCamLight.vue'
+import ThreeLight from './ThreeLight.vue'
 import ThreeFbxModel from './ThreeFbxModel.vue'
 
 const components = [
   VueThreeBox,
   ThreeScene,
   ThreeCam,
-  ThreeCamLight,
+  ThreeLight,
   ThreeFbxModel
 ]
 /*
@@ -28,7 +28,7 @@ export default {
   VueThreeBox,
   ThreeScene,
   ThreeCam,
-  ThreeCamLight,
+  ThreeLight,
   ThreeFbxModel
 }
 export {
@@ -36,6 +36,6 @@ export {
   VueThreeBox,
   ThreeScene,
   ThreeCam,
-  ThreeCamLight,
+  ThreeLight,
   ThreeFbxModel
 }

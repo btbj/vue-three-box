@@ -9,12 +9,6 @@ import * as THREE from 'three'
 
 export default {
   name: 'ThreeCam',
-  inject: ['ThreeScene'],
-  provide () {
-    return {
-      ThreeCam: this
-    }
-  },
   props: {
     type: {
       type: String,
@@ -38,16 +32,16 @@ export default {
   methods: {
     initCam () {
       console.log('init Cam')
-      let { ThreeScene } = this
+      let ThreeScene = this.$parent
       let aspectRatio = ThreeScene.width / ThreeScene.height
       this.instance = new THREE.PerspectiveCamera(45, aspectRatio, 1, 2000)
       this.instance.position.set(...this.pos)
       return this.instance
     },
     setCam () {
-      let { ThreeScene } = this
+      let ThreeScene = this.$parent
       ThreeScene.camera = this.instance
-      ThreeScene.scene.add(this.instance)
+      ThreeScene.instance.add(this.instance)
     }
   },
   beforeMount () {

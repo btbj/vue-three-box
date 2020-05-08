@@ -7,7 +7,6 @@ import * as THREE from 'three'
 
 export default {
   name: 'ThreeLight',
-  inject: ['ThreeCam'],
   props: {
     type: {
       type: String,
@@ -52,7 +51,7 @@ export default {
       this.instance.position.set(...this.pos)
     },
     setLight () {
-      let ThreeCam = this.ThreeCam
+      let ThreeCam = this.$parent
       ThreeCam.instance.add(this.instance)
     }
   },
