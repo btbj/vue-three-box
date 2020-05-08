@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import * as THREE from 'three'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
 
 export default {
@@ -11,6 +12,10 @@ export default {
     src: {
       type: String,
       required: true
+    },
+    animated: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -27,7 +32,18 @@ export default {
     onLoad (object) {
       let ThreeScene = this.$parent
       this.instance = object
+      if (this.animated) {
+        this.setAnimation(object)
+      }
       ThreeScene.instance.add(object)
+    },
+    setAnimation (object) {
+      let ThreeScene = this.$parent
+      let mixer = new THREE.AnimationMixer(object)
+
+      var action = mixer.clipAction(object.animations[ 0 ])
+      ThreeScene.mixer = mixer
+      action.play()
     }
   },
   beforeMount () {

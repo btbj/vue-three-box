@@ -20,11 +20,13 @@ export default {
       camera: null,
       instance: null,
       renderer: null,
-      object: null
+      mixer: null,
+      clock: null
     }
   },
   methods: {
     initScene () {
+      this.clock = new THREE.Clock()
       this.instance = new THREE.Scene()
       this.instance.background = new THREE.Color(0xaabbcc)
 
@@ -42,6 +44,10 @@ export default {
     },
     animate () {
       requestAnimationFrame(this.animate)
+      if (this.mixer) {
+        let delta = this.clock.getDelta()
+        this.mixer.update(delta)
+      }
       this.render()
     },
     render () {
@@ -57,7 +63,6 @@ export default {
     console.log('scene mounted')
     this.initRenderer()
     this.initControl()
-    console.log(this.renderer)
     this.animate()
     window.vue = this
   }

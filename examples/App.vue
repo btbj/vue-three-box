@@ -7,7 +7,7 @@
         <three-light type="directional" :pos="[270, 250, 280]" :intensity="1"></three-light>
         <three-light type="directional" :pos="[-114, 290, -62]" :intensity="0.4"></three-light>
       </three-cam>
-      <three-fbx-model src="/static/model/SambaDancing.fbx"></three-fbx-model>
+      <three-fbx-model src="/static/model/SambaDancing.fbx" animated></three-fbx-model>
     </three-scene>
   </div>
 </template>
