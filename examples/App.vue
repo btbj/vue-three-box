@@ -8,11 +8,11 @@
       <!-- <three-light type="spot" :pos="[0, 1000, 100]"></three-light> -->
 
       <!-- add perspective camera to the scene -->
-      <three-cam type="perspective" :pos="[0,100,0]">
+      <three-cam :pos="[0,100,0]">
 
         <!-- add two directional light to camera -->
-        <!-- <three-light type="directional" :pos="[270, 250, 280]" :intensity="1"></three-light> -->
-        <!-- <three-light type="directional" :pos="[-114, 290, -62]" :intensity="0.4"></three-light> -->
+        <three-light type="directional" :pos="[270, 250, 280]" :intensity="1"></three-light>
+        <three-light type="directional" :pos="[-114, 290, -62]" :intensity="0.4"></three-light>
 
       </three-cam>
 

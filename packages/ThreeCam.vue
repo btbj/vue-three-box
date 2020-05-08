@@ -10,10 +10,9 @@ import * as THREE from 'three'
 export default {
   name: 'ThreeCam',
   props: {
-    type: {
-      type: String,
-      required: true
-    },
+    fov: { type: Number, default: 45 },
+    near: { type: Number, default: 1 },
+    far: { type: Number, default: 2000 },
     pos: {
       type: Array,
       default: function () {
@@ -31,10 +30,9 @@ export default {
   },
   methods: {
     initCam () {
-      console.log('init Cam')
       let ThreeScene = this.$parent
       let aspectRatio = ThreeScene.width / ThreeScene.height
-      this.instance = new THREE.PerspectiveCamera(45, aspectRatio, 1, 2000)
+      this.instance = new THREE.PerspectiveCamera(this.fov, aspectRatio, this.near, this.far)
       this.instance.position.set(...this.pos)
       return this.instance
     },
