@@ -1,19 +1,29 @@
 <template>
   <div id="app">
-    <!-- <vue-three-box class="container" src="/static/model/SambaDancing.fbx" fileType="fbx"></vue-three-box> -->
     <three-scene class="container">
+
+      <!-- add ambient light to the scene -->
+      <three-light type="ambient" :pos="[0, 0, 0]"></three-light>
+      <!-- <three-light type="point" :pos="[0, 100, 100]"></three-light> -->
+      <!-- <three-light type="spot" :pos="[0, 1000, 100]"></three-light> -->
+
+      <!-- add perspective camera to the scene -->
       <three-cam type="perspective" :pos="[0,100,0]">
-        <three-light type="ambient" :pos="[0, 0, 0]"></three-light>
-        <three-light type="directional" :pos="[270, 250, 280]" :intensity="1"></three-light>
-        <three-light type="directional" :pos="[-114, 290, -62]" :intensity="0.4"></three-light>
+
+        <!-- add two directional light to camera -->
+        <!-- <three-light type="directional" :pos="[270, 250, 280]" :intensity="1"></three-light> -->
+        <!-- <three-light type="directional" :pos="[-114, 290, -62]" :intensity="0.4"></three-light> -->
+
       </three-cam>
+
+      <!-- add fbx model to the scene and set to animated -->
       <three-fbx-model src="/static/model/SambaDancing.fbx" animated></three-fbx-model>
+
     </three-scene>
   </div>
 </template>
 
 <script>
-// import { VueThreeBox } from '../packages/index.js'
 import { ThreeScene, ThreeCam, ThreeLight, ThreeFbxModel } from '../packages/index.js'
 
 export default {
