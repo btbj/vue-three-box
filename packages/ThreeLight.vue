@@ -56,11 +56,9 @@ export default {
   },
 
   beforeMount () {
-    console.log('light before mount')
     this.initLight()
   },
   mounted () {
-    console.log('light mounted')
     this.setLight()
   }
 }

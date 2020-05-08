@@ -43,11 +43,9 @@ export default {
     }
   },
   beforeMount () {
-    console.log('cam before mount')
     this.initCam()
   },
   mounted () {
-    console.log('cam mounted')
     this.setCam()
   }
 }

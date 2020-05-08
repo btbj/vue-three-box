@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     initModel () {
-      console.log('init initModel')
       let loader = new FBXLoader()
       loader.load(this.src, this.onLoad)
     },

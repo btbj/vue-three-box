@@ -1,11 +1,9 @@
-import VueThreeBox from './VueThreeBox'
 import ThreeScene from './ThreeScene.vue'
 import ThreeCam from './ThreeCam.vue'
 import ThreeLight from './ThreeLight.vue'
 import ThreeFbxModel from './ThreeFbxModel.vue'
 
 const components = [
-  VueThreeBox,
   ThreeScene,
   ThreeCam,
   ThreeLight,
@@ -25,7 +23,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 export default {
   install,
-  VueThreeBox,
   ThreeScene,
   ThreeCam,
   ThreeLight,
@@ -33,7 +30,6 @@ export default {
 }
 export {
   install,
-  VueThreeBox,
   ThreeScene,
   ThreeCam,
   ThreeLight,

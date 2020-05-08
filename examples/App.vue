@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <three-scene class="container">
+    <three-scene class="container" :width="800" :height="700">
 
       <!-- add ambient light to the scene -->
       <three-light type="ambient" :pos="[0, 0, 0]"></three-light>
@@ -34,7 +34,7 @@ export default {
 
 <style>
 #app .container{
-  height: 500px;
-  width: 500px;
+  height: 700px;
+  width: 800px;
 }
 </style>

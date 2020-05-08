@@ -29,9 +29,6 @@ export default {
       this.clock = new THREE.Clock()
       this.instance = new THREE.Scene()
       this.instance.background = new THREE.Color(0xaabbcc)
-
-      // should after camera and renderer init
-      // this.setControl(this.camera, this.renderer.domElement)
     },
     initRenderer () {
       this.renderer = new THREE.WebGLRenderer({ antialias: true })
@@ -56,11 +53,9 @@ export default {
 
   },
   beforeMount () {
-    console.log('scene before mount')
     this.initScene()
   },
   mounted () {
-    console.log('scene mounted')
     this.initRenderer()
     this.initControl()
     this.animate()
