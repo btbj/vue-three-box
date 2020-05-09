@@ -14,17 +14,17 @@ Vue.use(VueThreeBox)
 
 ### local use
 ```
-import { ThreeScene, ThreeCam, ThreeLight, ThreeFbxModel } from '../packages/index.js'
+import { ThreeScene, ThreeCamera, ThreeLight, ThreeFbxModel } from '../packages/index.js'
 
 export default {
-  components: { ThreeScene, ThreeCam, ThreeLight, ThreeFbxModel }
+  components: { ThreeScene, ThreeCamera, ThreeLight, ThreeFbxModel }
 }
 ```
 
 # Object3D[mixin]
 >mixin, not a component
 ### Props
-||type|default|other|
+|name|type|default|other|
 |---|---|---|---|
 |position|Array|\[0,0,0\]|---|
 |rotation|Array|\[0,0,0\]|in 'XYZ' order|
@@ -44,11 +44,18 @@ export default {
 >base container put other components in it
 
 ### Props
-||type|default|other|
+|name|type|default|other|
 |---|---|---|---|
 |width|Number|500||
 |height|Number|500||
 |background|Number|0xffffff|use hexadecimal|
+
+### Events
+|name|description|
+|---|---|
+|onLoad|triggered on load finish|
+|onProgress|triggered during loading|
+|onError|triggerd when error happend|
 
 ### Usage
 ```
@@ -62,7 +69,7 @@ export default {
 >PerspectiveCamera component
 
 ### Props
-||type|default|other|
+|name|type|default|other|
 |---|---|---|---|
 |fov|Number|45||
 |near|Number|1||
@@ -80,7 +87,7 @@ export default {
 >Light component
 
 ### Props
-||type|default|other|
+|name|type|default|other|
 |---|---|---|---|
 |type|String||required|
 |color|Number|0xffffff|use hexadecimal|
@@ -118,7 +125,7 @@ export default {
 >Model component for .fbx file
 
 ### Props
-||type|default|other|
+|name|type|default|other|
 |---|---|---|---|
 |src|String||required|
 |animated|Boolean|false||

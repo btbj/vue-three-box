@@ -5,16 +5,16 @@
       :background="0xaabbcc">
 
       <!-- add ambient light to the scene -->
-      <three-light type="ambient" :position="[0, 0, 0]"></three-light>
+      <three-light type="ambient" :position="[0, 0, 0]" :intensity="0.2"></three-light>
 
       <!-- add perspective camera to the scene -->
-      <three-cam :position="[0,100,0]">
+      <three-camera :position="[0,100,0]">
 
         <!-- add two directional light to camera -->
         <three-light type="directional" :position="[270, 250, 280]" :intensity="1"></three-light>
         <three-light type="directional" :position="[-114, 290, -62]" :intensity="0.4"></three-light>
 
-      </three-cam>
+      </three-camera>
 
       <!-- add fbx model to the scene and set to animated -->
       <three-fbx-model src="/static/model/SambaDancing.fbx" animated></three-fbx-model>
@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import { ThreeScene, ThreeCam, ThreeLight, ThreeFbxModel } from '../packages/index.js'
+import { ThreeScene, ThreeCamera, ThreeLight, ThreeFbxModel } from '../packages/index.js'
 
 export default {
   name: 'app',
-  components: { ThreeScene, ThreeCam, ThreeLight, ThreeFbxModel }
+  components: { ThreeScene, ThreeCamera, ThreeLight, ThreeFbxModel }
 }
 </script>
 
