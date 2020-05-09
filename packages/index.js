@@ -1,13 +1,17 @@
-import ThreeScene from './components/ThreeScene.vue'
-import ThreeCam from './components/ThreeCam.vue'
-import ThreeLight from './components/ThreeLight.vue'
-import ThreeFbxModel from './components/ThreeFbxModel.vue'
+import ThreeScene from './components/Scene.vue'
+import ThreeCam from './components/Camera.vue'
+import ThreeLight from './components/Light.vue'
+import ThreeFbxModel from './components/ModelFbx.vue'
+import ThreeObjModel from './components/ModelObj.vue'
+import ThreeJsonModel from './components/ModelJson.vue'
 
 const components = [
   ThreeScene,
   ThreeCam,
   ThreeLight,
-  ThreeFbxModel
+  ThreeFbxModel,
+  ThreeObjModel,
+  ThreeJsonModel
 ]
 /*
   定义install 方法，接收Vue作为参数，如果使用use注册插件，则所有的组件都将被注册
@@ -26,12 +30,16 @@ export default {
   ThreeScene,
   ThreeCam,
   ThreeLight,
-  ThreeFbxModel
+  ThreeFbxModel,
+  ThreeObjModel,
+  ThreeJsonModel
 }
 export {
   install,
   ThreeScene,
   ThreeCam,
   ThreeLight,
-  ThreeFbxModel
+  ThreeFbxModel,
+  ThreeObjModel,
+  ThreeJsonModel
 }

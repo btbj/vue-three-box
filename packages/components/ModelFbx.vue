@@ -23,7 +23,7 @@ export default {
   methods: {
     initModel () {
       let loader = new FBXLoader()
-      loader.load(this.src, this.onLoad)
+      loader.load(this.src, this.onLoad, this.onProgress, this.onError)
     },
     onLoad (object) {
       let ThreeScene = this.$parent
@@ -34,6 +34,15 @@ export default {
       let { setObj3DProps } = this
       setObj3DProps()
       ThreeScene.instance.add(object)
+    },
+    onProgress (e) {
+      // console.log('Load=>onProgress::', e)
+      // this.loadingPercentage = Math.round(e.loaded * 100 / e.total)
+      this.$emit('onProgress', e)
+    },
+    onError (e) {
+      // console.log('Load=>onError::', e)
+      this.$emit('onError', e)
     },
     setAnimation (object) {
       let ThreeScene = this.$parent
