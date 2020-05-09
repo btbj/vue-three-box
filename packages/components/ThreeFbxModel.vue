@@ -5,7 +5,7 @@
 <script>
 import * as THREE from 'three'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
-import Object3D from './mixins/Object3D'
+import Object3D from '../mixins/Object3D'
 
 export default {
   name: 'ThreeFbxModel',

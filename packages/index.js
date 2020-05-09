@@ -1,7 +1,7 @@
-import ThreeScene from './ThreeScene.vue'
-import ThreeCam from './ThreeCam.vue'
-import ThreeLight from './ThreeLight.vue'
-import ThreeFbxModel from './ThreeFbxModel.vue'
+import ThreeScene from './components/ThreeScene.vue'
+import ThreeCam from './components/ThreeCam.vue'
+import ThreeLight from './components/ThreeLight.vue'
+import ThreeFbxModel from './components/ThreeFbxModel.vue'
 
 const components = [
   ThreeScene,

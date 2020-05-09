@@ -6,7 +6,7 @@
 
 <script>
 import * as THREE from 'three'
-import Object3D from './mixins/Object3D'
+import Object3D from '../mixins/Object3D'
 
 export default {
   name: 'ThreeCam',

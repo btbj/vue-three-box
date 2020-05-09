@@ -6,8 +6,8 @@
 
 <script>
 import * as THREE from 'three'
-import ThreeOrbitControle from './utils/ThreeOrbitControle.js'
-import Object3D from './mixins/Object3D'
+import ThreeOrbitControle from '../utils/ThreeOrbitControle.js'
+import Object3D from '../mixins/Object3D'
 
 export default {
   name: 'ThreeScene',
