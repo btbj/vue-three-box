@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import * as THREE from 'three'
+import { Clock, Scene, Color, WebGLRenderer } from 'three'
 import ThreeOrbitControle from '../utils/ThreeOrbitControle.js'
-import Object3D from '../mixins/Object3D'
+import { Object3D, LoadingManager } from '../mixins'
 
 export default {
   name: 'ThreeScene',
-  mixins: [Object3D],
+  mixins: [Object3D, LoadingManager],
   props: {
     width: { type: Number, default: 500 },
     height: { type: Number, default: 500 },
@@ -28,14 +28,14 @@ export default {
   },
   methods: {
     initScene () {
-      this.clock = new THREE.Clock()
-      this.instance = new THREE.Scene()
-      this.instance.background = new THREE.Color(this.background)
+      this.clock = new Clock()
+      this.instance = new Scene()
+      this.instance.background = new Color(this.background)
       let { setObj3DProps } = this
       setObj3DProps()
     },
     initRenderer () {
-      this.renderer = new THREE.WebGLRenderer({ antialias: true })
+      this.renderer = new WebGLRenderer({ antialias: true })
       this.renderer.setPixelRatio(window.devicePixelRatio)
       this.renderer.setSize(this.width, this.height)
       this.$refs['container'].appendChild(this.renderer.domElement)

@@ -6,7 +6,6 @@
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
 import { MTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js'
 import { DDSLoader } from 'three/examples/jsm/loaders/DDSLoader.js'
-import { LoadingManager } from 'three/src/loaders/LoadingManager'
 import Object3D from '../mixins/Object3D'
 
 export default {
@@ -22,7 +21,8 @@ export default {
   },
   methods: {
     initModel () {
-      let manager = new LoadingManager()
+      let ThreeScene = this.$parent
+      let manager = ThreeScene.manager
       manager.addHandler(/\.dds$/i, new DDSLoader())
       let objLoader = new OBJLoader(manager)
       let mtlLoader = new MTLLoader(manager)
@@ -48,10 +48,10 @@ export default {
 
           objLoader
             .setMaterials(materials)
-            .load(this.src, this.onLoad, this.onProgress, this.onError)
-        }, () => {}, this.onError)
+            .load(this.src, this.onLoad, manager.onProgress, manager.onError)
+        }, () => {}, manager.onError)
       } else {
-        objLoader.load(this.src, this.onLoad, this.onProgress, this.onError)
+        objLoader.load(this.src, this.onLoad, manager.onProgress, manager.onError)
       }
     },
     onLoad (object) {
@@ -63,15 +63,6 @@ export default {
       let { setObj3DProps } = this
       setObj3DProps()
       ThreeScene.instance.add(object)
-    },
-    onProgress (e) {
-      // console.log('Load=>onProgress::', e)
-      // this.loadingPercentage = Math.round(e.loaded * 100 / e.total)
-      this.$emit('onProgress', e)
-    },
-    onError (e) {
-      // console.log('Load=>onError::', e)
-      this.$emit('onError', e)
     }
   },
   beforeMount () {

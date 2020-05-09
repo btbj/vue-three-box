@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import * as THREE from 'three'
+import { AnimationMixer } from 'three'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
 import Object3D from '../mixins/Object3D'
 
@@ -22,8 +22,10 @@ export default {
   },
   methods: {
     initModel () {
+      let ThreeScene = this.$parent
+      let manager = ThreeScene.manager
       let loader = new FBXLoader()
-      loader.load(this.src, this.onLoad, this.onProgress, this.onError)
+      loader.load(this.src, this.onLoad, manager.onProgress, manager.onError)
     },
     onLoad (object) {
       let ThreeScene = this.$parent
@@ -34,19 +36,11 @@ export default {
       let { setObj3DProps } = this
       setObj3DProps()
       ThreeScene.instance.add(object)
-    },
-    onProgress (e) {
-      // console.log('Load=>onProgress::', e)
-      // this.loadingPercentage = Math.round(e.loaded * 100 / e.total)
-      this.$emit('onProgress', e)
-    },
-    onError (e) {
-      // console.log('Load=>onError::', e)
-      this.$emit('onError', e)
+      ThreeScene.manager.onLoad(object)
     },
     setAnimation (object) {
       let ThreeScene = this.$parent
-      let mixer = new THREE.AnimationMixer(object)
+      let mixer = new AnimationMixer(object)
 
       var action = mixer.clipAction(object.animations[ 0 ])
       ThreeScene.mixer = mixer

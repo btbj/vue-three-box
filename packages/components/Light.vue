@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import * as THREE from 'three'
+import { AmbientLight, DirectionalLight, HemisphereLight, PointLight, SpotLight } from 'three'
 import Object3D from '../mixins/Object3D'
 
 export default {
@@ -18,19 +18,19 @@ export default {
     initLight () {
       switch (this.type) {
         case 'ambient':
-          this.instance = new THREE.AmbientLight(this.color, this.intensity)
+          this.instance = new AmbientLight(this.color, this.intensity)
           break
         case 'directional':
-          this.instance = new THREE.DirectionalLight(this.color, this.intensity)
+          this.instance = new DirectionalLight(this.color, this.intensity)
           break
         case 'hemisphere':
-          this.instance = new THREE.HemisphereLight(this.color, this.intensity)
+          this.instance = new HemisphereLight(this.color, this.intensity)
           break
         case 'point':
-          this.instance = new THREE.PointLight(this.color, this.intensity)
+          this.instance = new PointLight(this.color, this.intensity)
           break
         case 'spot':
-          this.instance = new THREE.SpotLight(this.color, this.intensity)
+          this.instance = new SpotLight(this.color, this.intensity)
           break
       }
       let { setObj3DProps } = this

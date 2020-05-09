@@ -14,8 +14,10 @@ export default {
   },
   methods: {
     initModel () {
+      let ThreeScene = this.$parent
+      let manager = ThreeScene.manager
       let loader = new ObjectLoader()
-      loader.load(this.src, this.onLoad, this.onProgress, this.onError)
+      loader.load(this.src, this.onLoad, manager.onProgress, manager.onError)
     },
     onLoad (object) {
       let ThreeScene = this.$parent
@@ -23,15 +25,7 @@ export default {
       let { setObj3DProps } = this
       setObj3DProps()
       ThreeScene.instance.add(object)
-    },
-    onProgress (e) {
-      // console.log('Load=>onProgress::', e)
-      // this.loadingPercentage = Math.round(e.loaded * 100 / e.total)
-      this.$emit('onProgress', e)
-    },
-    onError (e) {
-      console.log('Load=>onError::', e)
-      this.$emit('onError', e)
+      ThreeScene.manager.onLoad(object)
     }
   },
   beforeMount () {
