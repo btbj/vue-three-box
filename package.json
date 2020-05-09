@@ -1,6 +1,6 @@
 {
   "name": "vue-three-box",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "lib/vue-three-box.umd.min.js",
   "author": "btbj",
   "private": false,
