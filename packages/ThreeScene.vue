@@ -12,7 +12,8 @@ export default {
   name: 'ThreeScene',
   props: {
     width: { type: Number, default: 500 },
-    height: { type: Number, default: 500 }
+    height: { type: Number, default: 500 },
+    background: { type: Number, default: 0xffffff }
   },
   data () {
     return {
@@ -28,7 +29,7 @@ export default {
     initScene () {
       this.clock = new THREE.Clock()
       this.instance = new THREE.Scene()
-      this.instance.background = new THREE.Color(0xaabbcc)
+      this.instance.background = new THREE.Color(this.background)
     },
     initRenderer () {
       this.renderer = new THREE.WebGLRenderer({ antialias: true })
