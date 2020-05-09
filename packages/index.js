@@ -1,5 +1,5 @@
 import ThreeScene from './components/Scene.vue'
-import ThreeCam from './components/Camera.vue'
+import ThreeCamera from './components/Camera.vue'
 import ThreeLight from './components/Light.vue'
 import ThreeFbxModel from './components/ModelFbx.vue'
 import ThreeObjModel from './components/ModelObj.vue'
@@ -7,7 +7,7 @@ import ThreeJsonModel from './components/ModelJson.vue'
 
 const components = [
   ThreeScene,
-  ThreeCam,
+  ThreeCamera,
   ThreeLight,
   ThreeFbxModel,
   ThreeObjModel,
@@ -28,7 +28,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   install,
   ThreeScene,
-  ThreeCam,
+  ThreeCamera,
   ThreeLight,
   ThreeFbxModel,
   ThreeObjModel,
@@ -37,7 +37,7 @@ export default {
 export {
   install,
   ThreeScene,
-  ThreeCam,
+  ThreeCamera,
   ThreeLight,
   ThreeFbxModel,
   ThreeObjModel,

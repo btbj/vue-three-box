@@ -17,7 +17,7 @@
       </three-cam>
 
       <!-- add fbx model to the scene and set to animated -->
-      <three-fbx-model src="/static/model/SambaDancing.fbx"></three-fbx-model>
+      <three-fbx-model src="/static/model/SambaDancing.fbx" animated></three-fbx-model>
 
       <!-- <three-obj-model src="/static/model/male02.obj" mtl="/static/model/male02_dds.mtl"></three-obj-model> -->
 
