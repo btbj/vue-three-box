@@ -6,34 +6,23 @@
 
 <script>
 import * as THREE from 'three'
+import Object3D from './mixins/Object3D'
 
 export default {
   name: 'ThreeCam',
+  mixins: [Object3D],
   props: {
     fov: { type: Number, default: 45 },
     near: { type: Number, default: 1 },
-    far: { type: Number, default: 2000 },
-    pos: {
-      type: Array,
-      default: function () {
-        return [0, 100, 0]
-      },
-      validator: function (value) {
-        return value.length === 3
-      }
-    }
-  },
-  data () {
-    return {
-      instance: null
-    }
+    far: { type: Number, default: 2000 }
   },
   methods: {
     initCam () {
       let ThreeScene = this.$parent
       let aspectRatio = ThreeScene.width / ThreeScene.height
       this.instance = new THREE.PerspectiveCamera(this.fov, aspectRatio, this.near, this.far)
-      this.instance.position.set(...this.pos)
+      let { setObj3DProps } = this
+      setObj3DProps()
       return this.instance
     },
     setCam () {

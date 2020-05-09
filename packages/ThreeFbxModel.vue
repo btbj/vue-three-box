@@ -5,9 +5,11 @@
 <script>
 import * as THREE from 'three'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
+import Object3D from './mixins/Object3D'
 
 export default {
   name: 'ThreeFbxModel',
+  mixins: [Object3D],
   props: {
     src: {
       type: String,
@@ -16,11 +18,6 @@ export default {
     animated: {
       type: Boolean,
       default: false
-    }
-  },
-  data () {
-    return {
-      instance: null
     }
   },
   methods: {
@@ -34,6 +31,8 @@ export default {
       if (this.animated) {
         this.setAnimation(object)
       }
+      let { setObj3DProps } = this
+      setObj3DProps()
       ThreeScene.instance.add(object)
     },
     setAnimation (object) {

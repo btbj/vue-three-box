@@ -7,9 +7,11 @@
 <script>
 import * as THREE from 'three'
 import ThreeOrbitControle from './utils/ThreeOrbitControle.js'
+import Object3D from './mixins/Object3D'
 
 export default {
   name: 'ThreeScene',
+  mixins: [Object3D],
   props: {
     width: { type: Number, default: 500 },
     height: { type: Number, default: 500 },
@@ -19,7 +21,6 @@ export default {
     return {
       controls: null,
       camera: null,
-      instance: null,
       renderer: null,
       mixer: null,
       clock: null
@@ -30,6 +31,8 @@ export default {
       this.clock = new THREE.Clock()
       this.instance = new THREE.Scene()
       this.instance.background = new THREE.Color(this.background)
+      let { setObj3DProps } = this
+      setObj3DProps()
     },
     initRenderer () {
       this.renderer = new THREE.WebGLRenderer({ antialias: true })

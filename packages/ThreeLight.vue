@@ -4,29 +4,15 @@
 
 <script>
 import * as THREE from 'three'
+import Object3D from './mixins/Object3D'
 
 export default {
   name: 'ThreeLight',
+  mixins: [Object3D],
   props: {
     type: { type: String, required: true },
-    pos: {
-      type: Array,
-      default: function () {
-        return [0, 100, 0]
-      },
-      validator: function (value) {
-        return value.length === 3
-      }
-    },
     color: { type: Number, default: 0xffffff },
-    intensity: { type: Number, default: 1 },
-    width: { type: Number, default: 10 },
-    height: { type: Number, default: 10 }
-  },
-  data () {
-    return {
-      instance: null
-    }
+    intensity: { type: Number, default: 1 }
   },
   methods: {
     initLight () {
@@ -47,7 +33,8 @@ export default {
           this.instance = new THREE.SpotLight(this.color, this.intensity)
           break
       }
-      this.instance.position.set(...this.pos)
+      let { setObj3DProps } = this
+      setObj3DProps()
     },
     setLight () {
       let ThreeCam = this.$parent
